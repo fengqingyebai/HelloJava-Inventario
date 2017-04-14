@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="426.0" prefWidth="683.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.InventarioController">
+   <children>
+      <SplitPane dividerPositions="0.29797979797979796" prefHeight="426.0" prefWidth="683.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <TreeView fx:id="treeView" layoutX="14.0" layoutY="76.0" prefHeight="424.0" prefWidth="199.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <contextMenu>
+                        <ContextMenu>
+                          <items>
+                            <MenuItem fx:id="newItem" mnemonicParsing="false" onAction="#newItemClick" text="New" />
+                          </items>
+                        </ContextMenu>
+                     </contextMenu></TreeView>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="400.0" prefWidth="406.0">
+               <children>
+                  <TableView fx:id="tableProductos" layoutX="126.0" layoutY="162.0" prefHeight="426.0" prefWidth="451.0" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <columns>
+                        <TableColumn fx:id="idColumn" prefWidth="75.0" text="ID" visible="false" />
+                        <TableColumn fx:id="nombreColumn" prefWidth="75.0" text="Nombre" />
+                        <TableColumn fx:id="cantidadColumn" prefWidth="75.0" text="Cantidad" />
+                        <TableColumn fx:id="precioColumn" prefWidth="75.0" text="Precio" />
+                        <TableColumn fx:id="categoriaColumn" prefWidth="75.0" text="Categoria" />
+                     </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                     <contextMenu>
+                        <ContextMenu>
+                           <items>
+                              <MenuItem fx:id="editItem" mnemonicParsing="false" onAction="#editItemClick" text="Edit" />
+                              <MenuItem fx:id="deleteItem" mnemonicParsing="false" onAction="#deleteItemClick" text="Delete" />
+                           </items>
+                        </ContextMenu>
+                     </contextMenu>
+                  </TableView>
+                  <TextField fx:id="queryInput" layoutX="148.0" layoutY="386.0" promptText="Nombre o ID" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="148.0" AnchorPane.rightAnchor="116.0" />
+                  <Label layoutX="14.0" layoutY="386.0" text="Buscar un registro" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" />
+                  <Button fx:id="btnBuscar" layoutX="355.0" layoutY="386.0" mnemonicParsing="false" onAction="#btnBuscarClick" text="Buscar" AnchorPane.bottomAnchor="9.0" AnchorPane.rightAnchor="32.0" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
