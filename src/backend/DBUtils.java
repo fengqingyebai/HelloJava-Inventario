@@ -16,7 +16,7 @@ import java.sql.SQLException;
 public class DBUtils {
 	private static String url = System.getProperty("user.dir");
 	private static Connection con = null;
-	
+
 	public static Connection getConnection(){
 		if(con == null){
 			try{

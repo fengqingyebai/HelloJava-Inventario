@@ -49,4 +49,4 @@ Temporary Items
 # My Configs
 dist
 build
-nbproject
+nbproject/private
