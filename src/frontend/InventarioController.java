@@ -89,7 +89,7 @@ public class InventarioController implements Initializable {
     }
 
     @FXML // Elimina el elemento seleccionado
-    void deleteItemClick(ActionEvent event) {
+    void deleteItemClick(ActionEvent event) throws Exception {
 		Producto p = tableProductos.getSelectionModel().getSelectedItem();
 		
 		Facade.eliminarProducto(p);
@@ -98,7 +98,7 @@ public class InventarioController implements Initializable {
     }
 
     @FXML // Edita el elemento seleccionado
-    void editItemClick(ActionEvent event) {
+    void editItemClick(ActionEvent event) throws Exception {
 		Producto pOriginal = tableProductos.getSelectionModel().getSelectedItem(); // Producto original
 		Producto pNuevo = editarProducto(pOriginal); // Producto ya editado
 		
@@ -114,7 +114,7 @@ public class InventarioController implements Initializable {
     }
 
     @FXML // Crea un nuevo producto
-    void newItemClick(ActionEvent event) throws InvocationTargetException{
+    void newItemClick(ActionEvent event) throws InvocationTargetException, Exception{
 		String str = treeView.getSelectionModel().getSelectedItem().getValue();
 		Boolean r = Facade.comprobarCategoria(str);
 		
@@ -260,9 +260,9 @@ public class InventarioController implements Initializable {
 	}
 	
 	// Actualizo datos de la tabla
-	private void actualizar(){
-		String str = treeView.getSelectionModel().getSelectedItem().getValue();
-		data = Facade.getProductosByCategoria(str);
+	private void actualizar() throws Exception{
+            String str = treeView.getSelectionModel().getSelectedItem().getValue();
+            data = Facade.getProductosByCategoria(str);
 	}
 	
 	@Override

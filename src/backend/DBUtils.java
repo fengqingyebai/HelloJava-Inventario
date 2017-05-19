@@ -9,6 +9,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import backend.OSValidator;
+
 /**
  *
  * @author MonkeyAndres
@@ -20,7 +22,11 @@ public class DBUtils {
 	public static Connection getConnection(){
 		if(con == null){
 			try{
-				con = DriverManager.getConnection("jdbc:sqlite:"+url+"\\src\\backend\\myDB.db");
+                            if(OSValidator.isWindows()){
+                                con = DriverManager.getConnection("jdbc:sqlite:"+url+"\\src\\backend\\myDB.db");
+                            } else {
+                                con = DriverManager.getConnection("jdbc:sqlite:"+url+"//src//backend//myDB.db");
+                            }
 			}
 			catch(SQLException e){
 				System.err.println("No se ha podido obtener la conexion");
